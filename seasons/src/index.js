@@ -21,20 +21,26 @@ class App extends React.Component {
         );
     }
   
-   
+   renderContent (){
+    if (this.state.latitude) {
+        //user allow geolocation
+        return <SeasonDisplay lat={this.state.latitude}/>
+
+    }else if (this.state.errorMessage) {
+        //user denied geolocation
+        return <div> Error: {this.state.errorMessage}</div>
+    }else{
+        //waiting user responses 
+        return <Spinner message="Wating user response"/>
+    }
+   }
     //React says we have to define render!!
     render () {//avoid use render method for something else besides returning JSX
-        if (this.state.latitude) {
-            //user allow geolocation
-            return <SeasonDisplay lat={this.state.latitude}/>
-
-        }else if (this.state.errorMessage) {
-            //user denied geolocation
-            return <div> Error: {this.state.errorMessage}</div>
-        }else{
-            //waiting user responses 
-            return <Spinner message="Wating user response"/>
-        }
+       return(
+           <div className="border red">
+               {this.renderContent()};
+           </div>
+       );
     }
 }
 
