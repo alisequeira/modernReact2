@@ -7,6 +7,9 @@ class App extends React.Component {
         //THIS IS THE ONLY TIME WE DO DIRECT  ASSIGMENT TO this.state
         this.state = {latitude: null, errorMessage: ''};
 
+    }
+
+    componentDidMount(){
         window.navigator.geolocation.getCurrentPosition(
             (position) =>{//To update state we call setState method!!!!!!!!!!
                 this.setState({latitude: position.coords.latitude})
@@ -15,9 +18,10 @@ class App extends React.Component {
             (err) => this.setState({errorMessage: err.message})
         );
     }
+  
    
     //React says we have to define render!!
-    render () {
+    render () {//avoid use render method for something else besides returning JSX
         if (this.state.latitude) {
             //user allow geolocation
             return <div> latitude: {this.state.latitude}</div>
