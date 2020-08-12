@@ -33,7 +33,7 @@ class App extends React.Component {
             return <div> Error: {this.state.errorMessage}</div>
         }else{
             //waiting user responses 
-            return <Spinner/>
+            return <Spinner message="Wating user response"/>
         }
     }
 }
