@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SeasonDisplay from './SeasonDisplay'
 
 class App extends React.Component {
     constructor(props){
@@ -24,7 +25,8 @@ class App extends React.Component {
     render () {//avoid use render method for something else besides returning JSX
         if (this.state.latitude) {
             //user allow geolocation
-            return <div> latitude: {this.state.latitude}</div>
+            return <SeasonDisplay lat={this.state.latitude}/>
+
         }else if (this.state.errorMessage) {
             //user denied geolocation
             return <div> Error: {this.state.errorMessage}</div>
