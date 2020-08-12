@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SeasonDisplay from './SeasonDisplay'
+import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 class App extends React.Component {
     constructor(props){
@@ -32,7 +33,7 @@ class App extends React.Component {
             return <div> Error: {this.state.errorMessage}</div>
         }else{
             //waiting user responses 
-            return <div>Loading...</div>
+            return <Spinner/>
         }
     }
 }
@@ -41,4 +42,4 @@ ReactDOM.render(
     <App/>,
 
     document.querySelector('#root')
-);
+); 
