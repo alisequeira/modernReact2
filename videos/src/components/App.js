@@ -1,15 +1,33 @@
 import React from 'react';
-import SeachBar from './SearchBar';
+import SearchBar from './SearchBar';
+import Youtube from '../apis/Youtube';
+
+const KEY = 'AIzaSyAW53-kovRD_1NUL-_XLUo6xeA2WLAWams';
 
 class App extends React.Component{
     constructor(props){
         super(props);
+        this.state = {videos: []};
     }
+
+    onTermSubmit = async term => {
+     const response = await Youtube.get("/search", {
+          params: {
+            q: term,
+            part: "snippet",
+            maxResults: 5,
+            key: KEY
+          }
+        });
+
+        this.setState({videos: response.data.items});
+      };
 
     render(){
         return(
             <div className="ui container">
-                <SeachBar/>
+                <SearchBar onFormSubmit={this.onTermSubmit}/>
+                i have {this.state.videos.length} videos
             </div>
         );
     }
