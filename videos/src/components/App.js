@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import Youtube from '../apis/Youtube';
+import VideoList from './VideoList';
 
 const KEY = 'AIzaSyAW53-kovRD_1NUL-_XLUo6xeA2WLAWams';
 
@@ -27,7 +28,7 @@ class App extends React.Component{
         return(
             <div className="ui container">
                 <SearchBar onFormSubmit={this.onTermSubmit}/>
-                i have {this.state.videos.length} videos
+               <VideoList videos={this.state.videos}/>
             </div>
         );
     }
