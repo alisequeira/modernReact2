@@ -4,24 +4,30 @@ const Search = ()=> {
     const [term , setTerm] = useState('programing');
     const [results, setResults] = useState([])
     useEffect(()=>{
-        const timeOutId = setTimeout(() => {//timeoutId is for cancel the timeout in case it's need it
-            if(term){
-                (async () => {
-                  const{data} =  await axios.get('https://en.wikipedia.org/w/api.php',{
-                        params: {
-                            action: 'query',
-                            list: 'search',
-                            origin: '*',
-                            format: 'json',
-                            srsearch: term
-                        }
-                    })
+        const search = async () => {
+                        
+        const{data} =  await axios.get('https://en.wikipedia.org/w/api.php',{
+                                         params: {
+                                         action: 'query',
+                                        list: 'search',
+                                        origin: '*',
+                                        format: 'json',
+                                        srsearch: term
+                                        }
+                                    })
                     setResults(data.query.search);
-                })();
-            }
-        },1000); 
+                };
+                if(term && !results.length){
+                    search();
+                }
+                
+        const timeOutId = setTimeout(() => {//timeoutId is for cancel the timeout in case it's need it
+                if(term){
+                    search();
+                 }
+            },1000)
     return () => {//useEffect's clean up function
-        clearTimeout(timeOutId);
+                clearTimeout(timeOutId);
     }    
     },[term]);
 
