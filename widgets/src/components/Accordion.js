@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 
+/* Use of useState hooks */
+
 const Accordion = ({items}) => {
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(null);//hook useState
 
     const onTitleClick = (index) => {
         setActiveIndex(index);
