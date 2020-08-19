@@ -6,3 +6,11 @@ const songsReducer = () => {
         {title: 'have you ever seen the rain', duration: '2:47'}
     ];
 };
+
+const selectedSongReducer = (selectedSong = null, action) => {
+    if(action.type === 'SONGS_SELECTED'){
+        return action.payload;
+    }
+
+    return selectedSong;
+};
