@@ -9,7 +9,7 @@ class UserHeader extends React.Component {
     }
 
     render() {
-        const user = this.props.users.find((user) => user.id === this.props.userId);
+        const {user} = this.props;
 
         if(!user){
             return null;
@@ -18,8 +18,10 @@ class UserHeader extends React.Component {
     }
 };
 
-const mapStateToProps = (state) => {
-return {users: state.users}
+const mapStateToProps = (state, ownProps) => {//ownprops is a copy of the props in the class component
+    //we can extract anything that is going to do some computation on our redux state and the props comming into our components
+    //this is what really mapState... is for
+return {user: state.users.find(user => user.id === ownProps.userId)}
 }
 
 export default connect(mapStateToProps, {fetchUser})( UserHeader);
