@@ -1,8 +1,11 @@
+import jsonPlaceholder from '../apis/jsonPlaceholder';
 //action creator
 
 export const fetchPosts = () => {
-    return {
-        type: 'FETCH_POSTS'
-    };
+    return async dispatch => {
+        const response =  await jsonPlaceholder('/posts');
+        dispatch({type: 'FETCH_POST', payload: response})
+    }
+
 };
 
