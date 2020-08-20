@@ -1,4 +1,5 @@
 import jsonPlaceholder from '../apis/jsonPlaceholder';
+import _ from 'loadsh';
 //action creator
 
 export const fetchPosts = () => {
@@ -10,8 +11,14 @@ export const fetchPosts = () => {
 };
 
 export const fetchUser = (id) => {
-    return async dispatch => {
-        const response = await jsonPlaceholder.get(`/users/${id}`)
-        dispatch ({type: 'FETCH_USER', payload: response.data});
+    return dispatch => {
+        _fetchUser(id, dispatch);
     }
 }
+
+//using memoize 
+
+const _fetchUser =_.memoize(async (id, dispatch) => {
+    const response = await jsonPlaceholder.get(`/users/${id}`)
+        dispatch ({type: 'FETCH_USER', payload: response.data});
+})
