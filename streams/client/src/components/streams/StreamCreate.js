@@ -4,13 +4,24 @@ import {Field, reduxForm} from 'redux-form';//Field is a react component and red
 //we can kind of better organize our code.
 
 class StreamCreate extends React.Component {
+    renderError = ({error, touched})=> {
+        if(touched && error) {
+            return (
+                <div className="ui error message">
+                    <div className="header">
+                        {error}
+                    </div>
+                </div>
+            )
+        }
+    }
     renderInput = (formProps) => {
         //is gona take all the input properties out there and add them as props
         return (
                     <div className="field">
                         <label>{formProps.label}</label>
                         <input {...formProps.input}/>
-                        <div>{formProps.meta.error}</div>
+                        {this.renderError(formProps.meta)}
                     </div>
                 )
     }
