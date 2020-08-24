@@ -6,9 +6,7 @@ import StreamDelete from './streams/StreamDelete';
 import StreamEdit from './streams/StreamEdit';
 import StreamList from './streams/StreamList';
 import StreamShow from './streams/StreamShow';
-/*
-    Link: Is  a react component that we are goint to use in place of any anchor tags(helps to navigate single page application)
- */
+
 
 
 
