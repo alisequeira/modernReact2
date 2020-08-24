@@ -10,6 +10,7 @@ class StreamCreate extends React.Component {
                     <div className="field">
                         <label>{formProps.label}</label>
                         <input {...formProps.input}/>
+                        <div>{formProps.meta.error}</div>
                     </div>
                 )
     }
@@ -42,8 +43,11 @@ const validate = (formValues) => {
     if(!formValues.description){
         errors.description = 'You must a description'
     }
+
+    return errors;
 }
 
 export default reduxForm({
-    form:'streamCreate'
+    form:'streamCreate',
+    validate
 })(StreamCreate);
