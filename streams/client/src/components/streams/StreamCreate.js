@@ -17,8 +17,9 @@ class StreamCreate extends React.Component {
     }
     renderInput = (formProps) => {
         //is gona take all the input properties out there and add them as props
+        const className = `field ${formProps.meta.error && formProps.meta.touched ? 'error' : ''}`;
         return (
-                    <div className="field">
+                    <div className={className}>
                         <label>{formProps.label}</label>
                         <input {...formProps.input}/>
                         {this.renderError(formProps.meta)}
@@ -35,7 +36,7 @@ class StreamCreate extends React.Component {
         //prop component is going to be a real component or a function for the field to call
         //this function or component need to return some element is going to be actually shown on the screen
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
+            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                 <Field name="title" component={this.renderInput} label="Enter title"/>
                 <Field name="description" component={this.renderInput} label="Enter description"/>
                 <button className="ui button primary">Submit</button>
