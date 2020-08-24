@@ -4,11 +4,16 @@ import {Field, reduxForm} from 'redux-form';//Field is a react component and red
 //we can kind of better organize our code.
 
 class StreamCreate extends React.Component {
+    renderInput = (formProps) => {
+        return <input {...formProps.input}/>//is gona take all the input properties out there and add them as props
+    }
     render() {
+        //prop component is going to be a real component or a function for the field to call
+        //this function or component need to return some element is going to be actually shown on the screen
         return (
             <form>
-                <Field name="title"/>
-                <Field name="description"/>
+                <Field name="title" component={this.renderInput}/>
+                <Field name="description" component={this.renderInput}/>
             </form>
         )
     }
