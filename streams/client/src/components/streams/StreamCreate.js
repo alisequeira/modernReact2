@@ -31,7 +31,7 @@ class StreamCreate extends React.Component {
 
     onSubmit = (formValues) => {
 //doing this is going to be easier for us take those form values now and save them on some api or validate or whatever it's we want to do with
-        console.log(formValues)
+        this.props.createStream(formValues);
     }
 
     render() {
@@ -61,7 +61,9 @@ const validate = (formValues) => {
     return errors;
 }
 
-export default reduxForm({
+const formWrapped = reduxForm({
     form:'streamCreate',
     validate
 })(StreamCreate);
+
+export default connect(null, ({createStream})) (formWrapped);
