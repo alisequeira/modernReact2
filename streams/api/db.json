@@ -10,6 +10,12 @@
       "description": "this was made by me",
       "userId": "109830991349719075127",
       "id": 2
+    },
+    {
+      "title": "awesome stream",
+      "description": "this stream is gonna be awesome",
+      "userId": "109830991349719075127",
+      "id": 3
     }
   ]
 }
