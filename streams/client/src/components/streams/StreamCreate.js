@@ -1,7 +1,9 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';//Field is a react component and reduxForm is a function
 //this component was refactor to a class base component cuz we will have a bunch of helper methods so \
-//we can kind of better organize our code.
+//we can kind of better organize our code.\
+import {connect} from 'react-redux';
+import {createStream} from '../../actions';
 
 class StreamCreate extends React.Component {
     renderError = ({error, touched})=> {
