@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 import Header from './Header';
 import StreamCreate from './streams/StreamCreate';
 import StreamDelete from './streams/StreamDelete';
@@ -17,11 +17,13 @@ const App = () => {
             <Router history={history}>
                 <div>
                     <Header/>
+                    <Switch> {/*the first route that get match by a given path is going to be show and nothing else*/}
                     <Route path="/" exact component={StreamList}/>
                     <Route path="/streams/new" exact component={StreamCreate}/>
                     <Route path="/streams/edit/:id" exact component={StreamEdit}/>
                     <Route path="/streams/delete/:id" exact component={StreamDelete}/>
                     <Route path="/streams/:id" exact component={StreamShow}/>
+                    </Switch>
                 </div>
             </Router>
         </div>
