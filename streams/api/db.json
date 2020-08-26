@@ -9,24 +9,6 @@
       "title": "I created this stream",
       "description": "this stream is about refactoring",
       "id": 2
-    },
-    {
-      "title": "awesome stream",
-      "description": "this made by patch request",
-      "userId": "109830991349719075127",
-      "id": 3
-    },
-    {
-      "title": "programmatic Navigation",
-      "description": "the office is the best sitcom ever",
-      "userId": "109830991349719075127",
-      "id": 4
-    },
-    {
-      "title": "me streaming component reuse",
-      "description": "watch me refactor some components",
-      "userId": "109830991349719075127",
-      "id": 5
     }
   ]
 }
