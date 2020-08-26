@@ -9,6 +9,12 @@
       "title": "I created this stream",
       "description": "this stream is about refactoring",
       "id": 2
+    },
+    {
+      "title": "movies",
+      "description": "to watch movies",
+      "userId": "109830991349719075127",
+      "id": 3
     }
   ]
 }
