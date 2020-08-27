@@ -10,7 +10,7 @@ class App extends React.Component{
         this.setState({language});
     }
 
-    render() {
+    render() { 
         return (
             <div className="ui container">
                 <div>
