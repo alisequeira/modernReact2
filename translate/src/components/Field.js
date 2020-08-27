@@ -6,7 +6,7 @@ class Field extends React.Component{
     static contextType = LanguageContext;//similar to Field.contextType = LanguageContext(but you must do it after the class)
 
     render(){
-        const text = this.context === 'english' ? 'Name' : 'Nombre';
+        const text = this.context.language === 'english' ? 'Name' : 'Nombre';
         return(
             <div className="ui field">
                 <label>{text}</label>
