@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default React.createContext('english');
+const Contex =  React.createContext('english');
 
 /*
 PROVIDERS
@@ -13,3 +13,21 @@ PROVIDERS
     .Button and Field reach into context object, see the value from 'this.state.language'
     .Button and Field render appropriate text to the scree.
  */
+
+ export class LanguageStore extends React.Component {
+     state ={language: 'english'};
+
+     onLanguageChange = (language) => {
+         this.setState({language});
+     }
+
+     render() {
+         return(
+             <Contex.Provider value ={{...this.state, onLanguageChange}}>
+                 {this.props.childre}
+             </Contex.Provider>
+         )
+     }
+ }
+
+ export default Contex;
