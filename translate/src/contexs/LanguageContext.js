@@ -23,8 +23,8 @@ PROVIDERS
 
      render() {
          return(
-             <Contex.Provider value ={{...this.state, onLanguageChange}}>
-                 {this.props.childre}
+             <Contex.Provider value ={{...this.state, onLanguageChange: this.onLanguageChange}}>
+                 {this.props.children}
              </Contex.Provider>
          )
      }
